@@ -1,13 +1,11 @@
 from typing import List
-from . import Base
-from sqlalchemy import ForeignKey
 
+from . import Base
 from sqlalchemy.orm import (
     Mapped,
     mapped_column,
     relationship,
 )
-from datetime import datetime
 
 
 class Author(Base):

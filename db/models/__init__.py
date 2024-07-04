@@ -8,3 +8,4 @@ class Base(MappedAsDataclass, DeclarativeBase):
 from .author import Author
 from .comment import Comment
 from .post import Post
+from .crud import CRUD

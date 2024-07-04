@@ -1,13 +1,14 @@
 from sqlalchemy import create_engine
-
-from sqlalchemy.orm import sessionmaker
-
-
-from .models import Base, Author, Comment, Post
+from contextlib import contextmanager
+from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 engine = create_engine("sqlite:///my_db.sql", echo=True)
-Session = sessionmaker(engine)
+session_factory = sessionmaker(bind=engine, autoflush=True)
+Session = scoped_session(session_factory)
+
+
+from .models import Base, Author, Comment, Post, CRUD
 
 
 def up():
